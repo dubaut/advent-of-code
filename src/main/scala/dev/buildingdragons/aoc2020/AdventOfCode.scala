@@ -14,5 +14,6 @@ object AdventOfCode extends App {
 
   println("Day 02: ")
   val day02 = Day02.answer
-  println(s"  Number of valid passwords: ${day02.numValidPasswords}")
+  println(s"  Number of valid passwords (Sledge Rental): ${day02.numSledgeRental}")
+  println(s"  Number of valid passwords (Toggoban Corp): ${day02.numToggobanCorporate}")
 }

@@ -1,6 +1,6 @@
 package dev.buildingdragons.aoc2020.day02
 
-import dev.buildingdragons.aoc2020.day02.Day02.{PasswordLine, countLetters, validatePasswordLines}
+import dev.buildingdragons.aoc2020.day02.Day02.{PasswordLine, countLetters, validateSledgeRental, validateToggobanCorporate}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 
@@ -19,11 +19,20 @@ class Day02Test extends AnyFlatSpec with Matchers {
     }
   }
 
-  "validatePasswordLines" must "return a list of all valid password lines." in {
-    val lines = "1-3 a: abcde" :: "1-3 b: cdefg" :: "2-9 c: cccccccc" :: Nil
+  "validateSledgeRental" must "return a list of all valid password lines." in {
+    val lines = "1-3 a: abcde" :: "1-3 b: cdefg" :: "2-9 c: ccccccccc" :: Nil
 
-    val expected = PasswordLine('a', 1, 3, "abcde") :: PasswordLine('c', 2, 9, "cccccccc") :: Nil
-    val actual = validatePasswordLines(lines)
+    val expected = PasswordLine('a', 1, 3, "abcde") :: PasswordLine('c', 2, 9, "ccccccccc") :: Nil
+    val actual = validateSledgeRental(lines)
+
+    actual must equal(expected)
+  }
+
+  "validateToggobanCorporate" must "return a list of all valid password lines." in {
+    val lines = "1-3 a: abcde" :: "1-3 b: cdefg" :: "2-9 c: ccccccccc" :: Nil
+
+    val expected = PasswordLine('a', 1, 3, "abcde") :: Nil
+    val actual = validateToggobanCorporate(lines)
 
     actual must equal(expected)
   }
