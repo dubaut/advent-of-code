@@ -7,16 +7,12 @@ object AdventOfCode extends App {
   println("*** Advent of Code 2020, done in Scala ***")
 
   println("Day 01: ")
-  Day01.answer match {
-    case Right(result) => println(result)
-    case Left(error) => println(s"ERROR: $error")
-  }
+  val day01 = Day01.answer
+  println(s" Result:  $day01")
 
   println
 
   println("Day 02: ")
   val day02 = Day02.answer
   println(s"  Number of valid passwords: ${day02.numValidPasswords}")
-
-  println
 }
