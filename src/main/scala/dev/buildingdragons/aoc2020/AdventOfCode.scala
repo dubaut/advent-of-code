@@ -22,5 +22,6 @@ object AdventOfCode extends App {
 
   println("Day 03: ")
   val day03 = Day03.answer
-  println(s"  Number of trees encountered: ${day03.numTrees}")
+  println(s"  Number of trees encountered:                              ${day03.part1}")
+  println(s"  Product of the number of trees encountered on all slopes: ${day03.part2}")
 }
