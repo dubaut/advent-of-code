@@ -34,7 +34,7 @@ object Day03 {
     }.sum
   }
 
-  def answer: Result = Util.loadTextFileResource("day03/input.txt") match {
+  def answer: Answer = Util.loadTextFileResource("day03/input.txt") match {
     case Failure(exception) => throw exception
     case Success(input) =>
       val slopes = Slope(1, 1) :: Slope(3, 1) :: Slope(5, 1) :: Slope(7, 1) :: Slope(1, 2) :: Nil
@@ -42,10 +42,10 @@ object Day03 {
       val numberOfTrees = countTrees(input, Slope(3, 1))
       val product = slopes.map(slope => countTrees(input, slope)).product
 
-      Result(numberOfTrees, product)
+      Answer(numberOfTrees, product)
   }
 
-  final case class Result(part1: Int, part2: Int)
+  final case class Answer(part1: Int, part2: Int)
 
   final case class Slope(right: Int, down: Int)
 

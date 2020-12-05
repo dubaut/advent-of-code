@@ -31,7 +31,7 @@ object Day01 {
 
   def solvePart2(expanses: List[Int]): Int = summands(expanses, 3).product
 
-  def answer: Result = Util.loadTextFileResource("day01/input.txt") match {
+  def answer: Answer = Util.loadTextFileResource("day01/input.txt") match {
     case Failure(exception) => throw exception
     case Success(lines) =>
       val expanses = lines.map(_.toInt)
@@ -39,9 +39,9 @@ object Day01 {
       val part1 = solvePart1(expanses)
       val part2 = solvePart2(expanses)
 
-      Result(part1, part2)
+      Answer(part1, part2)
   }
 
-  final case class Result(part1: Int, part2: Int)
+  final case class Answer(part1: Int, part2: Int)
 
 }

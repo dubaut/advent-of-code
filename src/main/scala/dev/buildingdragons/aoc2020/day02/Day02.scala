@@ -5,12 +5,12 @@ import dev.buildingdragons.aoc2020.Util
 import scala.util.{Failure, Success}
 
 object Day02 {
-  def answer: Result = Util.loadTextFileResource("day02/input.txt") match {
+  def answer: Answer = Util.loadTextFileResource("day02/input.txt") match {
     case Failure(exception) => throw exception
     case Success(lines) =>
       val validSledgeRental = validateSledgeRental(lines)
       val validToggobanCorporate = validateToggobanCorporate(lines)
-      Result(validSledgeRental.length, validToggobanCorporate.length)
+      Answer(validSledgeRental.length, validToggobanCorporate.length)
   }
 
   def countLetters(password: String): Map[Char, Int] = {
@@ -39,7 +39,7 @@ object Day02 {
       (char1 != char2) && (char1 == passwordLine.char || char2 == passwordLine.char)
     }
 
-  final case class Result(numSledgeRental: Int, numToggobanCorporate: Int)
+  final case class Answer(numSledgeRental: Int, numToggobanCorporate: Int)
 
   final case class PasswordLine(char: Char, val1: Int, val2: Int, password: String)
 
