@@ -10,9 +10,11 @@ object Day04 {
     case Failure(exception) => throw exception
     case Success(input) =>
       val records = getPassportRecords(input)
-      val passports = records.flatMap(Passport(_))
 
-      Answer(passports.size)
+      val passports = records.flatMap(Passport(_))
+      val numValidPassports = passports.count(Passport.isValid)
+
+      Answer(passports.size, numValidPassports)
   }
 
   def getPassportRecords(input: List[String]): List[String] = {
@@ -25,6 +27,6 @@ object Day04 {
     ).toList
   }
 
-  final case class Answer(part1: Int)
+  final case class Answer(part1: Int, part2: Int)
 
 }
